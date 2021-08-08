@@ -1,0 +1,164 @@
+#CanvasHolder {
+  position: fixed;
+}
+
+body {
+background-color: black;
+
+}
+
+canvas {
+  width: 99vw;
+  height: 99vh;
+  z-index: -99; 
+}
+
+
+.BlankPage {
+  height: 100vh;
+  display: flex;
+  width: 100vh;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+
+.BlankHalfPage {
+  height: 50vh;
+  display: flex;
+  width: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.TextContent {
+  width: 100vw;
+  height: 700vh;
+  z-index: 99;
+  position: absolute;
+  margin: auto;
+  color: white;
+  opacity: 0.85;
+}
+
+.MainColumn {
+  margin: auto;
+  max-width: 1200px;
+  padding: 15px;
+
+}
+
+.introduction-section {
+  
+  height: 100vh;
+ 
+ 
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+ 
+
+  .intro-cont {
+      width: 475px;
+      height: 175px;
+      background-color: black;
+      border-radius: 20px;
+      border: 1px solid white;
+
+  }
+}
+
+ 
+.AboutPage {
+  margin:auto;
+  background-color: black;
+  border-radius: 20px;
+  border: 1px solid white;
+  padding: 10px
+
+
+}
+
+
+.SkillsTitle {
+  white-space: nowrap;
+
+ 
+  width: 100%;
+  background-color: black;
+  border-radius: 5px;
+  border: 1px solid white;
+  padding: 2px;
+  color:white;
+  
+}
+
+
+
+
+
+.PicContainer {
+  position: relative;
+}
+
+.PicContainer img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.PicContainer:hover .OverLay {
+  opacity: 0.5;
+}
+
+.OverLay {
+  border-radius: 10px;
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(148, 142, 142);
+  transition: 1s;
+}
+
+.FeaturedProjectHeader {
+  color: red;
+  border: 1px solid red;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+.End {
+  background-color: white;
+  color:black;
+  display: inline-block;
+  border-radius: 10px;
+  padding: 5px;
+ 
+}
+
+
+.FeaturedCollectionParent {
+  margin: auto;
+ 
+  background-color: black;
+  border-radius: 20px;
+  border: 1px solid white;
+  padding: 10px;
+
+}
+
+
+.TextRight {
+  text-align: right;
+}
+
+.TextLeft {
+  text-align: left;
+}
