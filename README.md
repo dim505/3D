@@ -4,4 +4,7 @@ This repo will contain various React JS projects experimenting with 3D (Three JS
     2)3D Carousel (Live: https://3dcarousel.azurewebsites.net) This is a rotating carousel that displays my skills in 3D
 	3)3D Donut (Live: https://3ddonut.azurewebsites.net) This is a 3d donut spinning in space 
 	4)3D Camera Angle (Live: https://slixk.csb.app) This demonstrates the backlighting of a scene in Three JS with various spot lights on a 6 sided dice
+	5)3D Product Showcasing A React JS project experimenting how to integrate Three JS with a regular website. In this example, I built a Apple product showcasing. (Live: https://lhb2y.csb.app)
+	
+
 	
