@@ -8,15 +8,16 @@ import Scene from './Scene'
 import './styles.css'
 
 const App = () => {
+  //keeps track of where the camera is
   const [CamPosition, SetCamPosition] = useState([0, 0, 0])
 
   function Dolly() {
     var StartTime = Date.now()
-   
+    //updates the camera position every 0.005 secs
     useFrame(({ ...props }) => {
       if (Math.floor(Date.now() - StartTime) / 1000 > 0.05) {
         StartTime = Date.now()
-
+        //if more than 0.005 seconds have passed it updates the position
         SetCamPosition([props.camera.position.x, props.camera.position.y, props.camera.position.z])
       }
     })
