@@ -1,7 +1,8 @@
+//plane that acts as a floor to reflect the lights to more directly show the light direction
 const Floor = () => {
   return (
     <mesh receiveShadow={true} rotation={[4.6, 0, 0]} position={[0, -1, 0]}>
-      <planeGeometry args={[500, 500]} />
+      <planeGeometry args={[15, 15]} />
       <meshStandardMaterial color="white" />
     </mesh>
   );

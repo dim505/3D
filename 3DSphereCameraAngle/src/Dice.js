@@ -1,6 +1,6 @@
 import { TextureLoader } from "three/src/loaders/TextureLoader.js";
 import { useLoader } from "@react-three/fiber";
-
+//the shape in the middle of the scene where the light reflects off of
 const Dice = () => {
   const texture1 = useLoader(TextureLoader, "Texture/1.jpeg");
   const texture2 = useLoader(TextureLoader, "Texture/2.jpeg");

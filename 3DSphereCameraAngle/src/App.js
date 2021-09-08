@@ -7,55 +7,23 @@ import Floor from "./Floor";
 import Backdrop from "./Backdrop";
 import FillLight from "./FillLight";
 import RimLight from "./RimLight";
-import ColorPicker from "./ColorPicker";
+import * as THREE from "three";
+import { OrbitControls, Stars } from "@react-three/drei";
+//root component that stores the child components
 export default function App() {
-  const [FillLightColor, SetFillLightColor] = React.useState("#3737f6");
-  const [KeyLightColor, SetKeyLightColor] = React.useState("#ff0505");
-  const [RimLightColor, SetRimLightColor] = React.useState("#fff");
-
-  const SetSpotLightColor = (color, SpotLight) => {
-    switch (SpotLight) {
-      case "FillLight":
-        SetFillLightColor(color);
-        break;
-      case "KeyLight":
-        SetKeyLightColor(color);
-        break;
-      default:
-        SetRimLightColor(color);
-    }
-  };
-
-  const SetSliderColor = (SpotLight) => {
-    switch (SpotLight) {
-      case "FillLight":
-        return FillLightColor;
-
-      case "KeyLight":
-        return KeyLightColor;
-
-      default:
-        return RimLightColor;
-    }
-  };
-
   return (
     <>
-      <Canvas>
-        <KeyLight brightness={40} color={KeyLightColor} />
-        <FillLight brightness={13} color={FillLightColor} />
-        <RimLight brightness={30} color={RimLightColor} />
+      <Canvas camera={{ position: [1, 1, 8] }}>
+        <KeyLight brightness={40} color="#ff0505" />
+        <FillLight brightness={13} color="#3737f6" />
+        <RimLight brightness={30} color="#fff" />
         <Suspense fallback={null}>
           <Dice />
         </Suspense>
+        <OrbitControls />
         <Floor />
         <Backdrop />
       </Canvas>
-
-      <ColorPicker
-        SetSliderColor={SetSliderColor}
-        SetSpotLightColor={SetSpotLightColor}
-      />
     </>
   );
 }

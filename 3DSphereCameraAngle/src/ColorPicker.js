@@ -7,7 +7,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import { IconButton } from "@material-ui/core";
 import Fade from "react-reveal/Fade";
 import ColorLensIcon from "@material-ui/icons/ColorLens";
-
+//OLD code
 const ColorPicker = (props) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [SpotLight, setSpotLight] = React.useState(null);
