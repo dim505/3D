@@ -3,6 +3,8 @@ import React, { useRef } from "react";
 import * as THREE from "three";
 import { OrbitControls, Stars, Text, Html } from "@react-three/drei";
 import Typography from "@material-ui/core/Typography";
+import ColorPicker from "./ColorPicker";
+
 //This is the main light that points toward the object of focus and generates strong shadows
 //contains the light and text associated with that light
 const KeyLight = ({ brightness, color }) => {

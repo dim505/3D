@@ -7,26 +7,31 @@ import Tooltip from "@material-ui/core/Tooltip";
 import { IconButton } from "@material-ui/core";
 import Fade from "react-reveal/Fade";
 import ColorLensIcon from "@material-ui/icons/ColorLens";
-//OLD code
+//color menu used to change the color of the lights
 const ColorPicker = (props) => {
+  //gets the anchor for the menu
   const [anchorEl, setAnchorEl] = React.useState(null);
+  //sets the spotlight to change the color on
   const [SpotLight, setSpotLight] = React.useState(null);
+  //sets the color that needs to be changed
   const [color, SetPickerColor] = React.useState("#FFFFFF");
+  //hides and displays the menu
   const [ShowColorPallet, SetShowColorPallet] = React.useState(false);
+  //opens the color pallet to change the color
   const handleClick = (event, SpotLight) => {
     setAnchorEl(event.currentTarget);
     setSpotLight(SpotLight);
     var PickerColor = props.SetSliderColor(SpotLight);
     SetPickerColor(PickerColor);
   };
-
+  //closes the menu
   const handleClose = () => {
     setAnchorEl(null);
   };
-
+  //updates the color of the light
   const handleColorChange = (color) => {
     SetPickerColor(color);
-    props.SetSpotLightColor(color, SpotLight);
+    props.SetSpotLightColor(color.hex, SpotLight);
   };
   return (
     <div className="ColorPickerContainer">

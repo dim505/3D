@@ -2,7 +2,7 @@
 const Backdrop = () => {
   return (
     <mesh receiveShadow position={[0, -1, -5]}>
-      <planeBufferGeometry attach="geometry" args={[15, 15]} />
+      <planeBufferGeometry attach="geometry" args={[20, 20]} />
       <meshStandardMaterial attach="material" color="white" />
     </mesh>
   );
