@@ -19,19 +19,24 @@ import Fade from "react-reveal/Fade";
 import Loader from "react-js-loader";
 import Grid from "@material-ui/core/Grid";
 import GlitchClip from "react-glitch-effect/core/GlitchClip";
-
-//to do: add a bunch of shapes and textrures representing your skills,logo will be react synbol ect...
+import IntroText from "./IntroText";
+import AboutMe from "./AboutMe";
+//contains that holds all the elements for the application
 const App = () => {
-  const SkillsGroup = useRef();
   const CameraRef = useRef();
+  //shows the preloader while the app is loading
   const [ShowLoader, SetShowLoader] = useState(true);
+
+  //adds a scroll event listener to the main body
   useEffect(() => {
     window.addEventListener("scroll", (event) => onScrolls());
   }, []);
 
+  //function fires on every scroll
   const onScrolls = (event) => {
+    //gets scroll position
     const ScrollPosition = document.body.getBoundingClientRect().top;
-
+    //updates camera position of canvas on each scroll
     if (Math.sign(ScrollPosition) === -1) {
       CameraRef.current.position.z = ScrollPosition * -0.0125;
     }
@@ -40,8 +45,11 @@ const App = () => {
   const Stars = new THREE.BufferGeometry();
   const points = [];
 
+  //loops again 10 times as CODESANDBOX only allows interations of 10000
   for (let i = 0; i < 10; i++) {
+    //loops through and generates points for stars
     for (let i = 0; i < 10000; i++) {
+      //generates a rondom point on a star
       var SingleStar = new THREE.Vector3(
         Math.random() * 45 - 25,
         Math.random() * 45 - 25,
@@ -50,14 +58,15 @@ const App = () => {
       points.push(SingleStar);
     }
   }
-
   Stars.setFromPoints(points);
+  //determines what the star is going to be made of
   var StarMaterial = new THREE.PointsMaterial({
     color: "#FFFFFF",
     size: 0.1,
     transparent: true
   });
 
+  //taking control of the cavas camera so you can manipulate it
   const Camera = (props) => {
     const set = useThree((state) => state.set);
     useEffect(() => void set({ camera: props.refs.current }), []);
@@ -73,32 +82,8 @@ const App = () => {
           className="TextContent"
         >
           <div className="MainColumn">
-            <Fade>
-              <div className="introduction-section">
-                <div className="intro-cont">
-                  <GlitchClip duration={3000}>
-                    <Typography display="block" variant="h2">
-                      Dmitriy Komerzan
-                    </Typography>
-                  </GlitchClip>
-                  <GlitchClip duration={3500}>
-                    <Typography display="block" variant="h5" gutterBottom>
-                      Aspiring Full Stack Software Developer
-                    </Typography>
-                  </GlitchClip>
-                  <GlitchClip duration={2500}>
-                    <Typography variant="body2" gutterBottom>
-                      "They don't make bugs like Bunny anymore" -Anonymous
-                    </Typography>
-                  </GlitchClip>
-                  <GlitchClip duration={2800}>
-                    <Typography variant="body1" gutterBottom>
-                      Based in Massachetts
-                    </Typography>
-                  </GlitchClip>
-                </div>
-              </div>
-            </Fade>
+            <IntroText />
+
             <div className="BlankPage"> </div>
             <div className="BlankPage"> </div>
             <Grid container>
@@ -120,83 +105,7 @@ const App = () => {
             <div className="BlankHalfPage"> </div>
 
             <Fade>
-              <div className="AboutPage">
-                <Typography
-                  classes={{ root: "AboutHeader" }}
-                  variant="h3"
-                  gutterBottom
-                >
-                  A Little Introduction
-                </Typography>
-
-                <Typography
-                  classes={{ root: "AboutSection" }}
-                  variant="h5"
-                  gutterBottom
-                >
-                  Background:
-                </Typography>
-
-                <Typography variant="subtitle1" gutterBottom>
-                  Hello, My name is Dmitriy. I'm a motivated technology
-                  enthusiast that is eager to become a software developer that
-                  graduated with a Bachelors of Science in Computer Information
-                  Systems. Professional experience includes providing software
-                  and hardware support, website management, Powershell
-                  automation, and SQL Report writing.
-                </Typography>
-
-                <Typography
-                  classes={{ root: "AboutSection" }}
-                  variant="h5"
-                  gutterBottom
-                >
-                  Education:
-                </Typography>
-
-                <Typography variant="subtitle1" gutterBottom>
-                  <ul>
-                    <li>
-                      <p>
-                        {" "}
-                        Bachcelors of Science in Computer Information Systems{" "}
-                      </p>
-                      <p> Deans List, 3.7 GPA</p>
-                    </li>
-                  </ul>
-                </Typography>
-
-                <Typography
-                  classes={{ root: "AboutSection" }}
-                  variant="h5"
-                  gutterBottom
-                >
-                  Experience:
-                </Typography>
-
-                <Typography variant="subtitle1" gutterBottom>
-                  <ul>
-                    <li>
-                      <p> 2 years </p>
-                      <ol>
-                        <li>
-                          <p>
-                            Expanding my portfolio mainly constanting of build
-                            web appplications (React JS, .Net Core, SQL){" "}
-                          </p>
-                        </li>
-                        <li>
-                          <p>
-                            PROFESSIONAL EXPERIENCE: SQL Report writing,
-                            Resolving Application database related issues,
-                            Database maintaince, and Powershell Automation{" "}
-                          </p>
-                        </li>
-                      </ol>
-                    </li>
-                  </ul>
-                </Typography>
-              </div>
+              <AboutMe />
             </Fade>
 
             <div className="BlankPage">

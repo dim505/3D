@@ -11,9 +11,9 @@ import Donut from "./Donut";
 import AppStateContext from "./Shared/appState";
 import { OrbitControls, Stars } from "@react-three/drei";
 
+//the root of the applicaion
 const App = () => {
   const AppState = useContext(AppStateContext);
-
   return (
     <>
       {" "}

@@ -7,9 +7,8 @@
   height: 100vh;
 }
 
-
+/* CSS for spinning apple logo*/
 .AppleLogo {
- 
   display: inline-block;
   width: 70px;
   height: 150px;
@@ -17,6 +16,8 @@
   top: 30px;
 }
 
+
+/* CSS for banners (shinny, sleek ect...)*/
 @mixin Banner  {
   font-size: 75px;
   -webkit-text-stroke: 2px black;
@@ -27,15 +28,8 @@
   @include Banner;
   transform: rotate(270deg);
   z-index: -99;
-
 }
 
-
-.CanvasContainer {
-  position: relative;
-
-
-}
 .CanvasBanner {
   @include Banner;
   position: absolute;
@@ -43,7 +37,6 @@
   text-align:right; 
 
 }
-
 
 .CanvasBanner2 {
   @include Banner;
@@ -55,7 +48,9 @@
 
 }
 
+ 
 
+/*CSS for 3d IPOD and roatating apple*/
 canvas {
   z-index: 99;
   width: 100%;

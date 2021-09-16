@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext, useRef } from "react";
 import { useFrame } from "react-three-fiber";
-
+//contains the giant sphere when the app first loads, you are in the middle of
 const Sphere = (props) => {
   // This reference will give us direct access to the mesh
   const mesh = useRef();

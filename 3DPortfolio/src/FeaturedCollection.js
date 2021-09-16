@@ -5,6 +5,8 @@ import FeaturedProjectomp from "./FeaturedProject";
 import Pulse from "react-reveal/Pulse";
 
 //parent component of the featured projects collection  in the home page
+
+//this contains all the data for the required components
 const FeaturedProjects = [
   {
     CompDirection: "left",

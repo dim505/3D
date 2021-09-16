@@ -3,12 +3,15 @@ import React, { useEffect, useMemo, useRef } from "react";
 import { useFrame, useLoader } from "react-three-fiber";
 import Typography from "@material-ui/core/Typography";
 import * as THREE from "three";
+
+//this represents the individual cube of the skill
 const SkillsCube = (props) => {
   const SkillsCubeRef = useRef();
-
+  //generates a random speed to rotate the cube
   const GenRandomNum = () => {
     return Math.floor(Math.random() * 3) / 100;
   };
+  //rotates the cube on the X and y axis
   useFrame(() => {
     SkillsCubeRef.current.rotation.y += GenRandomNum();
     SkillsCubeRef.current.rotation.x += GenRandomNum();

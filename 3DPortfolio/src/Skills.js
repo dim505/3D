@@ -10,6 +10,7 @@ import { OrbitControls, Stars, Text, Html } from "@react-three/drei";
 import SkillsCube from "./SkillsCube";
 import Typography from "@material-ui/core/Typography";
 const Skills = (props) => {
+  //contains the skill and image associated with that skill for the skills grid
   const [SkillsImages, SetSkillsImages] = useState([
     [
       "React",
@@ -62,11 +63,11 @@ const Skills = (props) => {
       "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAPDw0NDw8PDw0NDQ8NDw8NDw8PDQ0NFREWFhURFRUYHSggGBolGxUVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDg0OGhAQGi0iHyUtLS0rKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tN//AABEIAMIBAwMBEQACEQEDEQH/xAAbAAEBAAMBAQEAAAAAAAAAAAAAAQQFBgMCB//EADoQAAIBAgQDBgMFBwUBAAAAAAABAgMRBAUhMRJBUQYyYXGBkROx8EJScnPRIiM0Q2KhojNjksHxJP/EABoBAQACAwEAAAAAAAAAAAAAAAAEBQIDBgH/xAAqEQEAAgICAgEDBAEFAAAAAAAAAQIDEQQSITEFEzJRIjNBgWEUFUJxsf/aAAwDAQACEQMRAD8A/UwAFAgFAAAAACAAAACgQABQACwAAAAAAAAAAAXAAUABAIAAAAAFAgACgQCgAAEAAUAAAAUCAAAAAAAAAAAAAAXAAQAAAAAAAAAAoACAALYDAzHNqdD9l3lO1+GPLzfI05M9af8AaZx+FfN59Q1VPtLLifFTjwdIu0l68yPHLnfmE+3xddfpny32ExUKsFODun7p9GTKXi0bhUZcVsVutnsZNYAAAAAAAgFwFwAAABQIBAAAAAAAAKAAAAAEAoGrznNVRXBCzqtekF1ZGzZ4pGo9p/D4c5Z7W9f+uSnJybk3eUndtvVvqV0zufLoIrFY1CBkysux06E+KOz70b6SRtxZZpPhG5HHrmrqfbssHioVYKcHdc1zi+jLOl4vG4c5mxWxW62exk1AAABAFwKBAAFAAAAACAAAACgAAAABAKAAAXFUKnwpunb4trwUtv8A0xvvrOmzD17x39Pz6pxOTcr8d3xcW9+dyotvfl1dIrr9Pp8+h4y0egD0Aysvx06E+KOz70b6SRsx5ZpO0fkcauaup9uxweKjVgpwej3XOL6Ms6Xi8bhzeXDfFbrZ7mbUAAIAAICgAAACAUAAAgFAAAAEAAAKAAAYGPzmGHlFNccrriimrxj18/A0ZM9aJvH4V80TaPENxhsRCrGNSEuKMtU/rZm6totG4RclLY562aPtNkvxE8RSX71aziv5iXNePzIvIw9v1R7WPB5nSel/TkCAvQAAAycvx06E+KOq+1G+kkbMeSaTtH5HHrmrqXZYPFwrQU4PTmuafRlpS8WjcObzYbYrdbPcyagAAAAAAACAWwAAAAAAAAABAAFAAANXnWbKinCFnVa9ILq/Ej5s8U8R7T+Hw5yz2t6clOTk3J3bbu23q2VszM+ZdBWsVjUM3Kc0qYad46wl36bekl1XR+JtxZZpP+Efk8Wuav8An8u7wOOhXgqlOV4vRq/7UX92S5Ms6Xi8bhzuXFbFbrZpM57NfFqfFoOEXPWcZOSjxfeVk9+hGy8btO6rDi/IfTr1yefw09bs5iY/y1Nf7ck/nYj24+SE+nyGC386amUbNppprRp6NPoaJ8JkTExuAPQDJwGNnQnxR2+1F7SRsx5JpKPyOPXNXUuxwWLjWgpwfmucX0ZZ0vF43DnM2G2K3WzIM2kAAAAAAAAoACAAAAAAAgFAAAAGqznNVRXBDWq16QXVkfPm6RqPafw+HOWe1vTk5ycm5Su23dtu7bK2ZmZ3LoIrFY1EIGQBtezE5rFU4wk0p3U0tpQSb1Rv48zF4iEHn0r9GZmHefW7uWbnD2/yA5Dtlg4wnSqxVnV4lO2zkrWfna/sQOVSIna7+My2tE0n+HOkRbFgAGTgMbOhPjjttKPKSNmPJNJ8I/I49c1dS7HBYuNaCnH1XOL6Ms6Xi8bhzebDbFbrZkGbUAAKAAgFAAQAAAAAIBQIBQAADVZzmqorghrVa9ILq/HwI+bPFPEe1hw+HOWe1vtcnOTk3J3bbu292ytmdugrWKxqIQ8elj0AMvKsZ8CtCra6TtJdYPRmzFfpbaPycX1cc1fodKpGcVODUoyV043aaLWJiY3DmLVms6l9/XM9YtP2ny2VelH4avOlPj4eclwtNLxNHIxzevhO4GeuLJ+r1Lh2mtGmmtGno0ysl0UTuNwnuHoAAycBjZ0Z8cb2+1HlJdDZjyTSdwj8jj1zV1LscFi41oKcX5rnF9GWdLxaNw5zNgtit1syDNpAKAAgAAAAAAAAAAAAAAGqznNlRXBDWq16QXVkfPm6RqPaw4fDnLPa3pyc5uTcm223dt6tsrZmZX9axWNRCe4ZAD3AAAOg7G4iarSpcT+G6cp8L1SmmtV03JfFvPbSq+TxV6d/5dfUlwqUntFOTsruyVyfPhSRG50+cNWhVhGpTkpQmrxkuaPK2i3mHt6TSetvbTZ/kCrXq0lw1luto1PP+rxI+fB28x7T+HzZxz1v6cZODi3FpqSdmno0+jRXTGvEr+Ji0bh82BpQHuHrJwGNnRmpxen2ovaSNmPJNJ3CPyOPXNXUuxwOMjWgpwfmucX0ZZ0vF43DnM2G2K2rMgzaQAAAAAAACAAKAAAAAGqzrNVRXBHWq16QXV/oRs2fpGo9p/D4c5Z7W9OTnNybk23Ju7b3ZXTO58ugrEVjUIGQAAB4B6Abzsf/ABL/ACZ/OJJ4v3q75P8AZ/t2GMj+7qflz6fdZPt6UVPuhwGRZtPDcNk5UpJcdN+Xej0ZW4s00n/DouVxK5q/iXeYLFwrQVSnLii+is4vo1yZZVtFo3DnsuK2O3W0NfnmRxxC44WhWXO37M10lb5mrNgi/r2lcTmzhnU+YaN9lcRylS/5v9CL/pLrH/c8P4lp8Xhp0pyp1E1OLs+jXVdUR7Vms6lOx5K5K9q+nkeMwPWRgcZKjNTi34xe0kZ48k0nwj58FM1esuxwOMjWgpwfmucX0ZaY8kXjcOczYL4rdbMkzaS4C4C4EuAAAUAAAoAABi5jiPhUalTmou34nov7mGS3Wsy3cfH9TJFXDzm5Nybbbd23u2VMzMzuXU1rFY1CHj0AgeqHh7h6gC4eN52Of/0v8mfziSeL96v+T/Z/t2OL/wBOp+XPp91k+3qVFj+6H5hR7sfwr5FO65sMnxVSlWh8J6znGDi+7NN2s/1NuG9q28I3KxUyY57/AMP0T65Fq5cv9aAc521px+FSqW/bVZQ4lvwuMm17oi8qI67Wfxd5+pNf405Er19sAA2zMoxMqdaHC2lKSjJcmmbsFpi8IfNxxfFMz/DtS0c0AUAAQFAlgKAAALgRsABj5jh/i0qlPnKLt+JbGGSvasw3cfL9PJFnDVIuLcXdNOzT5MqZiYnUupraLRuE+tDxkWD0DwuAuAuBAbb3sd/Ev8mfziSeL96u+T/Z/t12Of7qt+VPp91k+3qVFj+6H5nT7sfJFO6174Su6dSnVWrpzU7PnZ7GVLdbRLDLTvSa/l+k0asZxjUjrGcVJPTYt6zExtyl6TS01l9v62PWLlO2eYRl8PCx1nGaq1HpaCs0o+bvchcq8a6rf4zBbf1J9OZuQlyB6AZmT0XOvTW6UuJ+CRv49N22g8/LFcUxvzLtizc4AAKAuAAAQAAAAAAADVZzlKrLjhpVS9JLoyPmw943HtP4fMnFPWfTk5xabTumnZprVMrZiYnToK2i0bhL+IZAABcPAPQDd9j/AOJf5M/nEk8X71d8n+z/AG7KvG8JrrCS/sywt6UNJ/VD8vpd2P4V8imn2699njx74PHVaD4qVSUL7reEvOL0ZspktT1LVl4+PL90M+r2mxctp04L+imm/wDJs2zyrotfjcMe/LUuTblKTcpzk5Sk95Se7NEzudynVrFY1Bc8ZAHrhMNOrJQgrt+yXVmePHN5R8/IriruXY5bl8aEeFayfelzbLOlIpGoc5mzWy23LMNjSAUCAAAAAAuAAAUAAAAanOspVZccLKql6TXRkfNgi/mPafw+XOKdW9OTnFptPRp2ae6ZWzExOpdBW0WjcSgZQAA8A9PUDpOx+Cn8R4hq1PglBN6OUm1t4abkvi0nfZU/JZqdfpx7dZ9bk+VJE68vzKvQdKc6T3pzlD2ej9invGrTDrcV+9Is+DFsAIBUAA9cJhpVZqEFdvd8kurNmPHN58I/I5FcVdy7LLcBGhHhWsn3pc2yypSKxqHOZs1sttyzDY0gACAAAAAAAAAAFAgAAAA1OdZSqqdSGlVL0mujI+bDF/Me0/h8ycU9Z9OUnFxbT0admnumV0xMTqXQVtFo3CHj0uBLh6+6NPilCCdnOUYr1dj2sbnTG9utZs/TKFJU4xpx7sIqK32SLisajTk72m1ptL7v9anrByvbHL0rYqNldqnU8X9mX/XsQuVj/wCULj43kT+3P9OX9SEuVAXDwD164TDSqyUIat7vkl1Zsx45vKPyORXFXcuyy7ARoR4VrJ96XNss6UisahzmbNbJbcsszaVsAAgAAAAAAAAABQIAAoACAANVnWUKqnUhZVV/muhHzYYvG49p/D5k4p1b05OcWm01Zp2ae6ZWzGp8ugraLRuEDIA+8PU4JwnuoTjK3NpNOx7WdTEsMkdqTEP0ujVU4xnF3jNKUWr6plxE7jbk7VmszEvvX6uesXMdtMfBwhhlK9X4kakkrvggk+90eq0InKvHXrC1+Mw27/U14cqQF4AAPbCYadWShBXb3fKK6s2Y8c3lH5HIjDXcuxy3ARoQ4Y6yfelzbLOlIrGoc5mzWy23LLM2lQAEAAAAAABQAABYAAAgAAAAoADUZ1lKqp1IaVUvSa6eZHz4e/mPafw+ZOKetvTlJQabTVmnZp7plbMTHh0FbRaNwnqGQBn5fnNfD2UJpwX8uprD05r0NuPNaniETPw8eXzPv8s7E9rK84OMKdKnJ6KopSk4+KTVrm6eXMx4hGp8XSLbmdtAlu27tu8pNtyk+rfMiTO52soiKxqFD09g9e+Ews6s1CC1e75JdWbMeObyj8jkVxV8+3Y5dgI0I8K1k+9Lm2WdKRWNQ5zNmtltuWYZtIBAKBAAAAAAAUCAUAwAACAAAACgQCgajO8pVVOpBWqpek108yNmwxeNx7WHD5k4p629OUlFptNWadmnumV0xqfK/raLRuEDIuDZcAA9gPbCYadWShBXb36RXU2Y8c3lH5HIriruXY5dgI0IcMdZPvS5tlnSkUjUOczZrZbbllmbSoAABAAFAAAAACXAoEAAAAAAAAoEAAAKBqM7yhVU6kFaql6TXTzI+bB38x7T+HzJxT1t6cpKLTaas1o090ytmJjxLoItFo3CBkewAD2wmFlVkoQV293yiupsx4pvKPyORXDXbscuwEaEOGO/2pc2yzpSKxpzebNbLbcsszalAAQAAAAAAACgRgAACwACgQAAAAUCAAAAABqM6yhVU6kElVW65TX6kbPgi/mPaw4fMnFPW3pysotNpqzWjXNMrpjXiXQRaLRuEA9sJhZ1ZqEVq93yiurNmPHN5R+RyK4q7n27LLsBChDhju+9Lm2WdKRWNQ53NmtltuWWZtIAuBGAAAAAAAAAWAALAAFwAC4AC3AlwKAAlgKAAALgQDV5rk0az44tQnzdrqXmaMuCL+U3jc2+GNe4a6PZqV9akbeEdTTHE/MpVvlJ/iG7y/AwoR4Y785PeRKpSKxqFblzWyTuWUZtQAAAAKBAKAsAsBQIAAAAIBAKAAAAAAABAAFuAAAAAAAAQAAAAWAtgLYAAuBLgAIBQIAAAAAAAAAAQABUAAAQCgAAAC2AWAWAWAXAXAXAXAALASwFAgFQACgfIAABAAACgAIB9ARAAPpAAAAAAYACAAKBACAAGB8gAAFQFYBAUD//2Q=="
     ]
   ]);
+  //takes the images and puts them on the skin of the square
   useEffect(() => {
     var SkillsImages2 = [];
     SkillsImages.forEach((url, index) => {
-      //console.log({}.toString.call(url));
-
+      //generates texture based on url
       var ImageTexture = new THREE.TextureLoader().load(url[1]);
       SkillsImages2.push([url[0], ImageTexture]);
     });
@@ -74,7 +75,7 @@ const Skills = (props) => {
     SetSkillsImages(SkillsImages2);
   }, []);
   console.log(SkillsImages);
-
+  //loops through all the skills and renders the cube in a 3D space
   const RenderSkills = () => {
     var Skills = [];
     var Group = [];
@@ -83,6 +84,7 @@ const Skills = (props) => {
       SkillsImages.map((texture, index) => {
         SpaceCounter += 2;
         switch (index) {
+          //renders first row
           case 0:
             Skills.push(
               <group position={[0, 3, props.SkillsPosition]}>{Group}</group>
@@ -102,6 +104,7 @@ const Skills = (props) => {
               </Html>
             );
             break;
+          //renders 2nd row
           case 4:
             Skills.push(
               <group position={[0, 1.5, props.SkillsPosition]}>{Group}</group>
@@ -121,6 +124,7 @@ const Skills = (props) => {
               </Html>
             );
             break;
+          //renders third row
           case 8:
             Skills.push(
               <group position={[0, -1, props.SkillsPosition]}>{Group}</group>
@@ -150,6 +154,7 @@ const Skills = (props) => {
             SpaceCounter={SpaceCounter}
           />
         );
+        //renders last row
         if (index == 11) {
           Skills.push(
             <group position={[0, -3.5, props.SkillsPosition]}>{Group}</group>
@@ -167,6 +172,7 @@ const Skills = (props) => {
   };
   return (
     <>
+      {/*renders the title of the skills section */}
       <group position={[0, 0, props.SkillsPosition - 4]}>
         <Html position={[0, 4.5, -2.5]} distanceFactor={10}>
           <div class="SkillsTitle">

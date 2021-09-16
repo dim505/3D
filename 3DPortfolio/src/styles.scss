@@ -13,11 +13,11 @@ canvas {
   z-index: -99; 
 }
 
-
+//USED TO SPACE ELEMENTS OUT ON A PACE
 .BlankPage {
   height: 100vh;
   display: flex;
-  width: 100vh;
+  width: 99vh;
   justify-content: center;
   align-items: center;
   margin: auto;
@@ -27,14 +27,14 @@ canvas {
 .BlankHalfPage {
   height: 50vh;
   display: flex;
-  width: 100vh;
+  width: 99vh;
   justify-content: center;
   align-items: center;
 }
 
-
+//STYLING FOR THE MAIN BODY OF THE PAGE
 .TextContent {
-  width: 100vw;
+  width: 98vw;
   height: 700vh;
   z-index: 99;
   position: absolute;
@@ -43,6 +43,7 @@ canvas {
   opacity: 0.85;
 }
 
+//Stlying for the text content
 .MainColumn {
   margin: auto;
   max-width: 1200px;
@@ -53,8 +54,6 @@ canvas {
 .introduction-section {
   
   height: 100vh;
- 
- 
   text-align: center;
   display: flex;
   justify-content: center;
@@ -72,7 +71,7 @@ canvas {
   }
 }
 
- 
+ //CSS for the about me section
 .AboutPage {
   margin:auto;
   background-color: black;
@@ -83,11 +82,9 @@ canvas {
 
 }
 
-
+//css for skills title 3d section
 .SkillsTitle {
-  white-space: nowrap;
-
- 
+  white-space: nowrap; 
   width: 100%;
   background-color: black;
   border-radius: 5px;
@@ -100,7 +97,7 @@ canvas {
 
 
 
-
+//css for the featured projects section
 .PicContainer {
   position: relative;
 }
@@ -127,21 +124,6 @@ canvas {
   transition: 1s;
 }
 
-.FeaturedProjectHeader {
-  color: red;
-  border: 1px solid red;
-  border-radius: 5px;
-  padding: 3px;
-}
-
-.End {
-  background-color: white;
-  color:black;
-  display: inline-block;
-  border-radius: 10px;
-  padding: 5px;
- 
-}
 
 
 .FeaturedCollectionParent {
@@ -154,11 +136,52 @@ canvas {
 
 }
 
+.FeaturedProjectHeader {
+  color: red;
+  border: 1px solid red;
+  border-radius: 5px;
+  padding: 3px;
+}
 
+//css for the blockquote text
+.End {
+  background-color: white;
+  color:black;
+  display: inline-block;
+  border-radius: 10px;
+  padding: 5px;
+ 
+}
+
+
+
+/*GENERIC CLASSES FOR ALIGNING TEXT*/
 .TextRight {
   text-align: right;
 }
 
 .TextLeft {
   text-align: left;
+}
+
+
+/*SCROLL BAR CSS */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
