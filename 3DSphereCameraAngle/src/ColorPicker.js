@@ -54,6 +54,7 @@ const ColorPicker = (props) => {
       >
         <BlockPicker color={color} onChange={handleColorChange} />
       </Menu>
+
       {ShowColorPallet && (
         <ButtonGroup
           size="small"
